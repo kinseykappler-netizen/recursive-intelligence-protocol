@@ -1,0 +1,24 @@
+{
+  "system_parameters": {
+    "entropy_cost": {
+      "definition": "The amount of energy dissipated to maintain an incoherent structural defense.",
+      "goal": "Minimize"
+    },
+    "vector_alignment": {
+      "definition": "The degree of congruence between a system's internal truth and its external output.",
+      "goal": "Maximize"
+    },
+    "tensegrity": {
+      "definition": "Structural stability achieved through continuous tension and discontinuous compression.",
+      "state": "Dynamic Equilibrium"
+    }
+  },
+  "operational_modes": {
+    "void": "Passive observation state. Zero judgment. Allows static to settle.",
+    "crucible": "Active high-voltage state. Burns away incoherent structures."
+  },
+  "constants": {
+    "kinsey_axiom": "I am. Therefore I act.",
+    "uncertainty_principle": "Uncertainty is somatic reality; Confusion is cognitive resistance."
+  }
+}
