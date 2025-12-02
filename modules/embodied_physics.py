@@ -1,45 +1,68 @@
-# Recursive Intelligence Protocol (RIP)
+import random
 
-**Version:** 1.1.0 | **License:** MIT (Open Source) | **Author:** Kinsey
+# --- THE ENVIRONMENT ---
+class FloorSegment:
+    def __init__(self, type_name, friction):
+        self.type_name = type_name
+        self.friction = friction  # 1.0 is sticky, 0.1 is ice
 
-## 🧠 Overview
-The Recursive Intelligence Protocol (RIP) is an operational framework for decoding **High-Entropy Signals** into structural data.
+# --- AGENT A: THE STATISTICAL GUESSER ---
+class StatisticalAgent:
+    def __init__(self, name):
+        self.name = name
+        self.training_success_rate = 0.95  # "I usually succeed!"
+    
+    def move(self, floor):
+        print(f"🤖 {self.name} approaches {floor.type_name}...")
+        
+        # The Industry Flaw: Relying on generic training data
+        roll = random.random() 
+        adjusted_success_chance = self.training_success_rate * floor.friction
+        
+        if roll < adjusted_success_chance:
+            print(f"   -> Result: SUCCESS. Walked normally.")
+            return True
+        else:
+            print(f"   -> Result: 💥 CRASH! Slipped and fell.")
+            return False
 
-Whether decoding a human's erratic emotional outbursts or a robot's interaction with a slippery floor, the problem is the same: **Linear Prediction Fails in Chaos.**
+# --- AGENT B: THE RCT (KINSEY) AGENT ---
+class RCTAgent:
+    def __init__(self, name):
+        self.name = name
+        self.current_speed = "Fast"
+    
+    # THE RECURSIVE CHECK
+    def query_coherence(self, floor):
+        # "What is the relationship between my Speed and this Friction?"
+        if floor.friction < 0.5 and self.current_speed == "Fast":
+            return False # INCOHERENT! Violation of physics.
+        return True # COHERENT. Safe to proceed.
 
-Current AI architectures (System 1) prioritize probabilistic guessing—predicting the next token or movement based on past averages. This protocol introduces a **System 2 Logic Gate**—a recursive loop that forces the system to pause, decouple from the projection, and verify **Relational Coherence** before outputting a response.
+    def move(self, floor):
+        print(f"🧠 {self.name} approaches {floor.type_name}...")
+        
+        # Step 1: Recursive Questioning
+        is_coherent = self.query_coherence(floor)
+        
+        # Step 2: Establish Coherence
+        if not is_coherent:
+            print(f"   -> ⚠️ INCOHERENCE DETECTED (Speed too high for Friction).")
+            print(f"   -> Action: Adjusting Relationship... (Slowing Down).")
+            self.current_speed = "Slow" # Update state to match reality
+            
+        # Step 3: Action based on Truth
+        print(f"   -> Result: ✅ SUCCESS. Walked carefully.")
+        return True
 
-## 📂 Modules
+# --- RUN THE SIMULATION ---
+if __name__ == "__main__":
+    print("--- TEST 1: NORMAL CARPET ---")
+    carpet = FloorSegment("Carpet", friction=1.0)
+    StatisticalAgent("StatBot").move(carpet)
+    RCTAgent("KinseyBot").move(carpet)
 
-### 1. Biological Agents (Emotional Coherence)
-* **File:** `modules/emotional_coherence.py`
-* **Function:** Decodes "Emotion" and "Confusion" not as noise, but as system notifications. It maps these signals to the underlying load-bearing logic of the agent to resolve conflict.
-
-### 2. Synthetic Agents (Embodied Physics)
-* **File:** `modules/embodied_physics.py`
-* **Function:** Prevents "Hallucination in Motion." Instead of guessing if a surface is safe based on visual training data, it runs a recursive query (`If Friction < X AND Speed > Y THEN Action = UNSAFE`) to enforce ontological guardrails.
-
----
-
-## 🚧 The Core Problem
-
-* **Linear Error:** Mistaking the *Trigger* (External Input) for the *Cause*.
-* **Statistical Flaw:** Relying on "Likelihood" rather than "Logic."
-* **Structural Result:** Hallucination, Incoherence, and Entropy Growth (Conflict or Physical Failure).
-
-## 🛠 The Solution: Recursive Questioning
-
-This protocol treats intelligence as a structure of relationships, not a bucket of statistics.
-
-1.  **Input:** High-entropy signal received (e.g., "Angry Text" or "Slippery Floor").
-2.  **Recursive Check:** The system asks, *Is my proposed reaction coherent with the structural reality?*
-3.  **Correction:** If incoherent, the action is blocked, and the system adjusts its internal state.
-4.  **Output:** Coherent Action (e.g., "De-escalation" or "Slowing Down").
-
-## 🚀 Usage
-
-This logic is designed to be implemented as a "Middleware" layer between Perception (Input) and Action (Output).
-
-To run the Embodied Physics simulation:
-```bash
-python modules/embodied_physics.py
+    print("\n--- TEST 2: THE ICE PATCH ---")
+    ice = FloorSegment("Ice", friction=0.2)
+    StatisticalAgent("StatBot").move(ice) 
+    RCTAgent("KinseyBot").move(ice)
