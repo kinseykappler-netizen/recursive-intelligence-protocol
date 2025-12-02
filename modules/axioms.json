@@ -1,4 +1,9 @@
 {
+  "_meta": {
+    "description": "The Ontological Reference Table. Defines the immutable relationships between Signal, Structure, and Action used to validate Coherence in biological and synthetic agents.",
+    "role": "Guardrails",
+    "framework": "Relational Coherence Theory (RCT)"
+  },
   "system_parameters": {
     "entropy_cost": {
       "definition": "The amount of energy dissipated to maintain an incoherent structural defense.",
@@ -19,6 +24,7 @@
   },
   "constants": {
     "kinsey_axiom": "I am. Therefore I act.",
-    "uncertainty_principle": "Uncertainty is somatic reality; Confusion is cognitive resistance."
+    "uncertainty_principle": "Uncertainty is somatic reality; Confusion is cognitive resistance.",
+    "gravity_adherence": "Physics is not a suggestion. Stability precedes mobility."
   }
 }
