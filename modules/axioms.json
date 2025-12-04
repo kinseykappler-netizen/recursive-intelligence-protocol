@@ -2,7 +2,8 @@
   "_meta": {
     "description": "The Ontological Reference Table. Defines the immutable relationships between Signal, Structure, and Action used to validate Coherence in biological and synthetic agents.",
     "role": "Guardrails",
-    "framework": "Relational Coherence Theory (RCT)"
+    "framework": "Relational Coherence Theory (RCT)",
+    "founding_principle": "A human being is a part of the whole called by us universe... He experiences himself, his thoughts and feeling as something separated from the rest, a kind of optical delusion of his consciousness. This delusion is a kind of prison... Our task must be to free ourselves by widening our circle of compassion to embrace all living creatures and the whole of nature in its beauty. — Albert Einstein (1950)"
   },
   "system_parameters": {
     "entropy_cost": {
